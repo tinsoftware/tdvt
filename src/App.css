@@ -1,0 +1,83 @@
+.app-container {
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 2.5rem;
+}
+
+.header p {
+  color: #666;
+  margin-top: 5px;
+}
+
+.converter-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+select, input {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+select:focus, input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+.conversion-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.input-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.equals {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  .conversion-row {
+    flex-direction: column;
+  }
+  .equals {
+    transform: rotate(90deg);
+    margin: 10px 0;
+  }
+}
