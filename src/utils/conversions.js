@@ -5,48 +5,51 @@ export const conversionCategories = {
       m2: { name: "Mét vuông (m²)", value: 1 },
       km2: { name: "Kilômét vuông (km²)", value: 1000000 },
       ha: { name: "Hecta (ha)", value: 10000 },
-      "sao-bac-bo": { name: "Sào Bắc Bộ", value: 360 },
-      "mau-bac-bo": { name: "Mẫu Bắc Bộ", value: 3600 },
-      "sao-trung-bo": { name: "Sào Trung Bộ", value: 500 },
-      "mau-trung-bo": { name: "Mẫu Trung Bộ", value: 5000 },
-      "cong-nam-bo": { name: "Công Nam Bộ", value: 1000 },
-      "mau-nam-bo": { name: "Mẫu Nam Bộ", value: 10000 },
+      "sao-bac": { name: "Sào miền Bắc", value: 360 },
+      "sao-trung": { name: "Sào miền Trung", value: 500 },
+      "mau-bac": { name: "Mẫu miền Bắc", value: 3600 },
+      "mau-trung": { name: "Mẫu miền Trung", value: 5000 },
+      "mau-nam-nho": { name: "Mẫu miền Nam (10,000m²)", value: 10000 },
+      "mau-nam-lon": { name: "Mẫu miền Nam (12,960m²)", value: 12960 },
+      "cong-nho": { name: "Công tầm nhỏ (Nam Bộ)", value: 1000 },
+      "cong-lon": { name: "Công tầm lớn (Nam Bộ)", value: 1296 },
     },
   },
   currency: {
     name: "Tiền tệ & Tiếng lóng",
     units: {
       vnd: { name: "Đồng (VNĐ)", value: 1 },
-      nghin: { name: "Nghìn / Ngàn", value: 1000 },
-      "lit": { name: "Lít (Loét)", value: 100000 },
+      "k": { name: "K (Ngàn)", value: 1000 },
+      "xi": { name: "Xị", value: 100000 },
+      "loet": { name: "Loét / Lét / Lít", value: 100000 },
       "cu": { name: "Củ (Triệu)", value: 1000000 },
       "chai": { name: "Chai (Triệu)", value: 1000000 },
-      "qua": { name: "Quả / Líp", value: 1000000 },
       "toi": { name: "Tỏi (Tỷ)", value: 1000000000 },
     },
   },
-  length: {
-    name: "Độ dài",
+  folk_mass: {
+    name: "Khối lượng (Dân gian & Chuẩn)",
     units: {
-      mm: { name: "Milimét (mm)", value: 0.001 },
-      cm: { name: "Centimét (cm)", value: 0.01 },
-      m: { name: "Mét (m)", value: 1 },
-      km: { name: "Kilômét (km)", value: 1000 },
-      inch: { name: "Inch (in)", value: 0.0254 },
-      foot: { name: "Foot (ft)", value: 0.3048 },
-      yard: { name: "Yard (yd)", value: 0.9144 },
-      mile: { name: "Dặm (mile)", value: 1609.344 },
+      kg: { name: "Kilôgam (kg)", value: 1 },
+      g: { name: "Gram (g)", value: 0.001 },
+      ta: { name: "Tạ (100kg)", value: 100 },
+      tan: { name: "Tấn (1000kg)", value: 1000 },
+      "gia-20": { name: "Giạ lúa (20kg)", value: 20 },
+      "gia-22": { name: "Giạ lúa (22kg)", value: 22 },
+      "thung-10": { name: "Thúng (10kg)", value: 10 },
+      "thung-12": { name: "Thúng (12kg)", value: 12 },
     },
   },
-  mass: {
-    name: "Khối lượng",
+  folk_length: {
+    name: "Độ dài (Dân gian & Chuẩn)",
     units: {
-      g: { name: "Gram (g)", value: 0.001 },
-      kg: { name: "Kilôgam (kg)", value: 1 },
-      ta: { name: "Tạ", value: 100 },
-      tan: { name: "Tấn", value: 1000 },
-      lb: { name: "Pound (lb)", value: 0.45359237 },
-      oz: { name: "Ounce (oz)", value: 0.02834952 },
+      m: { name: "Mét (m)", value: 1 },
+      cm: { name: "Centimét (cm)", value: 0.01 },
+      km: { name: "Kilômét (km)", value: 1000 },
+      "gang-tay": { name: "Gang tay (~20cm)", value: 0.2 },
+      "sai-tay-15": { name: "Sải tay (1.5m)", value: 1.5 },
+      "sai-tay-17": { name: "Sải tay (1.7m)", value: 1.7 },
+      "dot-ngon-tay": { name: "Đốt ngón tay (~2cm)", value: 0.02 },
     },
   },
 };
@@ -59,8 +62,6 @@ export function convert(value, fromUnit, toUnit, category) {
   const valueInBase = value * cat.units[fromUnit].value;
   const result = valueInBase / cat.units[toUnit].value;
 
-  // Formatting for avoiding scientific notation on very small or large numbers
-  // and preventing long decimals like 1.999999999999
   const formatted = Number(result.toFixed(10));
   return formatted;
 }
