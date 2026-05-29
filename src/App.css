@@ -81,3 +81,12 @@ select:focus, input:focus {
     margin: 10px 0;
   }
 }
+.calculation-explanation {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  background-color: var(--card-bg);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}

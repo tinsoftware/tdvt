@@ -94,6 +94,12 @@ function App() {
                 <option key={unit} value={unit}>{conversionCategories[category].units[unit].name}</option>
               ))}
             </select>
+{/* Explanation of calculation */}
+{toValue !== '' && (
+  <div className="calculation-explanation">
+    Cách tính: {fromValue} × {conversionCategories[category].units[fromUnit].value} ÷ {conversionCategories[category].units[toUnit].value} = {toValue}
+  </div>
+)}
           </div>
         </div>
       </div>
